@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Climate March</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="libs/handlebars-v4.0.5.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script id="starttpl" type="text/x-handlebars-template">
+        <div id="wrapper" class="start-cont">
+            <div class="yellow">Resist.</div>
+            <div class="ltgrey">Build.</div>
+            <div class="white">Rise.</div>
+            <div class="ltblue next" id="pluggin">
+                <p>Stay Pluggin >></p>
+            </div>
+        </div>
+    </script>
+    <script id="survey" type="text/x-handlebars-template">
+        <div id="wrapper" class="survey">
+            <div>
+                <p>{{question}}</p>
+                <input type="text" id="{{id}}" value="{{placeholder}}">
+                <button class="prev"><<</button>
+                <button class="next">>></button>
+            </div>
+        </div>
+    </script>
+    <script id="surveyInterests" type="text/x-handlebars-template">
+        <div id="wrapper" class="survey">
+            <div>
+                <p>{{question}}</p>
+                <ul class="interest">
+                    {{#each interests}}
+                    <li>
+                        <input type="checkbox" id={{@index}}>{{this.title}}</li>
+                    {{/each}}
+                </ul>
+                <button class="prev"><<</button>
+                <button class="next">>></button>
+            </div>
+        </div>
+    </script>
+    <script id="findsquad" type="text/x-handlebars-template">
+        <div id="wrapper" class="find-squad">
+            <div>
+                <p>Find Your Squad!</p>
+                <ul class="squad">
+                    {{#each this}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <button class="next"><span>Found Team</span>>></button>
+            </div>
+        </div>
+    </script>
+    <script id="questions" type="text/x-handlebars-template">
+        <div id="wrapper" class="questions">
+            <div>
+                {{#each this}}
+                <p>{{this}}</p>
+                {{/each}}
+                <button class="prev"><<</button>
+                <button class="next">>></button>
+            </div>
+        </div>
+    </script>
+</head>
+
+<body>
+    <div id="content"></div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
